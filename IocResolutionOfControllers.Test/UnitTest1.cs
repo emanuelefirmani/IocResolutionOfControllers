@@ -1,6 +1,7 @@
 using FluentAssertions;
 using IocResolutionOfControllers.Controllers;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
 namespace IocResolutionOfControllers.Test;
@@ -13,6 +14,7 @@ public class UnitTest1
         var builder = WebApplication.CreateBuilder();
         
         IocModule.AddDependencies(builder.Services);
+        builder.Services.AddTransient<WeatherForecastController>();
         
         var application = builder.Build();
 
