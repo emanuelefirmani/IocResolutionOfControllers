@@ -1,9 +1,9 @@
 using IocResolutionOfControllers;
 
-var builder = WebApplication.CreateBuilder(args);
+var builder = Startup.CreateBuilder();
 
 // Add services to the container.
-IocModule.AddDependencies(builder.Services);
+Startup.ConfigureServices(builder.Services);
 
 var app = builder.Build();
 
